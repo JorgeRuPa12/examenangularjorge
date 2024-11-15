@@ -1,0 +1,29 @@
+<div>
+    <h1>Tus compras</h1>
+    <hr class="border border-danger opacity-100">
+    <table class="table">
+        <thead class="border-danger">
+            <tr>
+                <th>Núm. Pedido</th>
+                <th>ID Cubo</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let com of compras">
+                <td>{{com.idPedido}}</td>
+                <td>{{com.idCubo}}</td>
+                <td>{{com.fechaPedido}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-primary w-100 m-1" [routerLink]="['/perfil/'+user.idUsuario]">Volver al perfil</a>
+        </div>
+        <div class="col-6">
+            <a class="btn btn-primary w-100 m-1" [routerLink]="['/pedido']">Realizar pedido</a>
+        </div>
+    </div>
+    
+  </div>

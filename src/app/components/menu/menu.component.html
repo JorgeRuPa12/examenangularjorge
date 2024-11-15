@@ -1,0 +1,51 @@
+<div>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" to="/">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/310/854/small/rubik-toy-with-transparent-background-free-png.png" alt="Bootstrap" width="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" [routerLink]="['/']">Cubos</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Marcas
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item"  *ngFor="let marca of marcas" [routerLink]="['/cubos/'+ marca]">
+                            {{marca}}
+                        </a>
+                    </li>
+                </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Seguridad
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" aria-current="page" [routerLink]="['/login']" *ngIf="!estado">Iniciar Sesión</a></li>
+                    <li><a class="dropdown-item" aria-current="page" [routerLink]="['/register']" *ngIf="!estado">Registrarse</a></li>
+                    <li><a class="dropdown-item" aria-current="page" (click)="cerrarSesion()" *ngIf="estado">Cerrar Sesion</a></li>
+                </ul>
+                </li>
+                <li class="nav-item dropdown" *ngIf="estado">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Usuario
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" aria-current="page" [routerLink]="['/perfil/'+userinfo.idUsuario]">Perfil</a></li>
+                    <li><a class="dropdown-item" aria-current="page" [routerLink]="['/compras']">Compras</a></li>
+                    <li><a class="dropdown-item" aria-current="page" [routerLink]="['/pedido']">Realizar Pedido</a></li>
+                </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+  </div>
